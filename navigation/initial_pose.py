@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
+
 import yaml
 import rospy
 from geometry_msgs.msg import PoseWithCovarianceStamped, Pose, Point, Quaternion
-from tf.transformations import quaternion_from_euler
 
 def set_initial_pose(pos, quat):
-	rospy.init_node('set_initial_pose', anonymous=False) #Nome do no de controle
+	rospy.init_node('fpso', anonymous=False) #No de controle
 	pub = rospy.Publisher('/initialpose', PoseWithCovarianceStamped, queue_size=10)
 	rate = rospy.Rate(1) #10Hz
 	
