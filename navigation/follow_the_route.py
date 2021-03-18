@@ -11,7 +11,7 @@ def listener_robot_callback(data):
     global status
     status = data.status.status
 	
-def set_goal(count, pose, quat):
+def set_goal(count, pose):
 	pos = poses['position']
 	quat = poses['quaternion']
 	local = poses['local']
