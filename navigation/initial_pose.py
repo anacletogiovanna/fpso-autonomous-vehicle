@@ -20,7 +20,7 @@ def set_initial_pose(pos, quat):
 		pub.publish(initpose_msg)
 		rate.sleep()
 		pub.publish(initpose_msg)
-		rospy.loginfo(initpose_msg)
+		#rospy.loginfo(initpose_msg)
 		rate.sleep()
     
 def main():

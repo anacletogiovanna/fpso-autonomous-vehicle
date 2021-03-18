@@ -4,5 +4,4 @@
 - {local: 'm05_tag_1', position: { x: 13.5963, y: -2.4933}, quaternion: {x: 0, y: 0, z: -0.7265, w: 0.6871}}
 - {local: 'm05_tag_2', position: { x: 14.0857, y: -3.2245}, quaternion: {x: 0, y: 0, z: -0.0014, w: 0.9999}}
 - {local: 'aft', position: { x: 22.1482, y: -2.2189}, quaternion: {x: 0, y: 0, z: -0.7392, w: 0.6734}}
-
 - {local: 'forward', position: { x: 0, y: 0}, quaternion: {x: 0, y: 0, z: 0, w: 1}}

@@ -23,7 +23,7 @@ def set_goal(count, pos, quat):
 		rospy.loginfo("Deslocando para pose: %s", count)
 		pub.publish(pose_msg)
 		rospy.sleep(3)
-		rospy.loginfo(pose_msg)
+		#rospy.loginfo(pose_msg)
 		pub.publish(pose_msg)
 		rospy.sleep(1)
     
