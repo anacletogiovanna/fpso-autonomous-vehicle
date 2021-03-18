@@ -2,7 +2,7 @@
 
 import yaml
 import rospy
-from time import sleep
+from datetime import datetime
 from geometry_msgs.msg import PoseStamped, Pose, Point, Quaternion
 from move_base_msgs.msg import MoveBaseActionResult
 
@@ -23,7 +23,8 @@ def set_goal(count, pose):
 	pose_msg.header.stamp = rospy.Time.now()
 	pose_msg.pose = Pose(Point(pos['x'], pos['y'], 0.000), Quaternion(quat['x'], quat['y'], quat['z'], quat['w']))
 	if not rospy.is_shutdown():
-		rospy.loginfo("Deslocando para pose: %s - %s", count, local)
+		dt = datetime.now().strftime(‘%d/%m/%Y %H:%M’)
+		rospy.loginfo("Deslocando para pose: %s - %s as ", count, local, dt)
 		pub.publish(pose_msg)
 		rospy.sleep(1)
 		#rospy.loginfo(pose_msg)
