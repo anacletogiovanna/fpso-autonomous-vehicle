@@ -43,6 +43,7 @@ def main():
 	while True:
 	
 		set_goal(0, poses[0]['position'], poses[0]['quaternion'])
+		sleep(2)
 		
 		for i in range(len(poses)):
 		
@@ -56,6 +57,7 @@ def main():
 					
 			#Setando a pose objetivo da base movel
 			set_goal(i+1, poses[i+1]['position'], poses[i+1]['quaternion'])
+			sleep(2)
           
 if __name__ == '__main__':
 	status = 0
