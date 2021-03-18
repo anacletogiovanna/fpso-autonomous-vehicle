@@ -22,7 +22,8 @@ def set_goal(count, pos, quat):
 	if not rospy.is_shutdown():
 		rospy.loginfo("Deslocando para pose: %s", count)
 		pub.publish(pose_msg)
-		rate.sleep()
+		#rate.sleep()
+		rospy.sleep(5)
 		pub.publish(pose_msg)
 		rospy.loginfo(pose_msg)
 		rate.sleep()
@@ -36,7 +37,6 @@ def main():
 		for i in range(len(poses)-1):
 			#Setando a pose objetivo da base movel
 			set_goal(i+1, poses[i+1]['position'], poses[i+1]['quaternion'])
-			rospy.sleep(5)
 			#Verificando se ja cheguei no meu objetivo
 			while not rospy.is_shutdown():
 				rospy.Subscriber('/move_base/result', MoveBaseActionResult, listener_robot_callback)
@@ -44,5 +44,8 @@ def main():
 					break
 					
 if __name__ == '__main__':
-	status = 0
-	main()
+	try:
+		status = 0
+		main()
+	except rospy.ROSInterruptException:
+		pass
