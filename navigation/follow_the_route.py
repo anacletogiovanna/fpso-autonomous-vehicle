@@ -22,11 +22,10 @@ def set_goal(count, pos, quat):
 	if not rospy.is_shutdown():
 		rospy.loginfo("Deslocando para pose: %s", count)
 		pub.publish(pose_msg)
-		#rate.sleep()
-		rospy.sleep(5)
-		pub.publish(pose_msg)
+		rospy.sleep(3)
 		rospy.loginfo(pose_msg)
-		rate.sleep()
+		pub.publish(pose_msg)
+		rospy.sleep(1)
     
 def main():
 	with open("fpso_poses.yaml", 'r') as stream:
