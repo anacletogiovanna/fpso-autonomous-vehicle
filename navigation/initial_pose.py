@@ -4,7 +4,7 @@ from geometry_msgs.msg import PoseWithCovarianceStamped, Pose, Point, Quaternion
 from tf.transformations import quaternion_from_euler
 
 def set_initial_pose(pose):
-	rospy.init_node('set_initial_pose', anonymous=False) #Nome do nó de controle
+	rospy.init_node('set_initial_pose', anonymous=False) #Nome do no de controle
 	pub = rospy.Publisher('/initialpose', PoseWithCovarianceStamped, queue_size=10)
 	rate = rospy.Rate(1) #10Hz
 	
@@ -23,11 +23,11 @@ def set_initial_pose(pose):
 		rate.sleep()
     
 def main():
-	#Lendo a posoção e orientação da pose inicial no arquivo 
+	#Lendo a posicao e orientacao da pose inicial no arquivo 
 	with open("initial_pose.yaml", 'r') as stream:
 		initial_pose = yaml.load(stream)
 		
-	#Setando a pose inicial do robô
+	#Setando a pose inicial do robo
 	set_initial_pose(initial_pose[pose])
           
 if __name__ == '__main__':
