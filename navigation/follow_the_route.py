@@ -12,9 +12,9 @@ def listener_robot_callback(data):
     status = data.status.status
 	
 def set_goal(count, pose):
-	pos = poses['position']
-	quat = poses['quaternion']
-	local = poses['local']
+	pos = pose['position']
+	quat = pose['quaternion']
+	local = pose['local']
 	pub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
 	rate = rospy.Rate(1) #10Hz
 	#Criando o objeto para setar a pose inicial informada
