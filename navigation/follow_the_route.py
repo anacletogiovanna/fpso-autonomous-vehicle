@@ -46,7 +46,7 @@ def main():
 		
 		for i in range(len(poses)):
 		
-			#Verificando se já cheguei no meu objetivo
+			#Verificando se ja cheguei no meu objetivo
 			while not rospy.is_shutdown():
 				rospy.Subscriber('/move_base/result', MoveBaseActionResult, listener_robot_callback)
 				#rospy.Subscriber('/take_picture', Bool, listener_photo_callback)
