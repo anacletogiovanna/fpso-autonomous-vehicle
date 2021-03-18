@@ -3,7 +3,7 @@
 import yaml
 import rospy
 from time import sleep
-from from std_msgs.msg import Bool
+from std_msgs.msg import Bool
 from geometry_msgs.msg import PoseStamped, Pose, Point, Quaternion
 from move_base_msgs.msg import MoveBaseActionResult
 
