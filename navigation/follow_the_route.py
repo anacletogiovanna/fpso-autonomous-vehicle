@@ -23,7 +23,7 @@ def set_goal(count, pose):
 	pose_msg.header.stamp = rospy.Time.now()
 	pose_msg.pose = Pose(Point(pos['x'], pos['y'], 0.000), Quaternion(quat['x'], quat['y'], quat['z'], quat['w']))
 	if not rospy.is_shutdown():
-		dt = datetime.now().strftime(‘%d/%m/%Y %H:%M’)
+		dt = datetime.now().strftime("%d/%m/%Y %H:%M")
 		rospy.loginfo("Deslocando para pose: %s - %s as ", count, local, dt)
 		pub.publish(pose_msg)
 		rospy.sleep(1)
