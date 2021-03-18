@@ -6,6 +6,7 @@ from datetime import datetime
 from geometry_msgs.msg import PoseStamped, Pose, Point, Quaternion
 from move_base_msgs.msg import MoveBaseActionResult
 
+GOAL_REACHED = 3
 	
 def listener_robot_callback(data):
     global status
@@ -17,7 +18,6 @@ def set_goal(count, pose):
 	local = pose['local']
 	pub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
 	rate = rospy.Rate(1) #10Hz
-	#Criando o objeto para setar a pose inicial informada
 	pose_msg = PoseStamped()
 	pose_msg.header.frame_id = 'map'
 	pose_msg.header.stamp = rospy.Time.now()
@@ -34,16 +34,14 @@ def set_goal(count, pose):
 def main():
 	with open("fpso_poses.yaml", 'r') as stream:
 		poses = yaml.load(stream)
-	rospy.init_node('fpso', anonymous=False) #No de controle
+	rospy.init_node('fpso', anonymous=False)
 	
 	while True:
 		for i in range(len(poses)-1):
-			#Setando a pose objetivo da base movel
 			set_goal(i+1, poses[i+1])
-			#Verificando se ja cheguei no meu objetivo
 			while not rospy.is_shutdown():
 				rospy.Subscriber('/move_base/result', MoveBaseActionResult, listener_robot_callback)
-				if status == 3:
+				if status == GOAL_REACHED:
 					rospy.sleep(3)
 					break
 					
