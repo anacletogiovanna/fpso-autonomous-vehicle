@@ -50,5 +50,7 @@ if __name__ == '__main__':
 	try:
 		status = 0
 		main()
+	except KeyboardInterrupt:
+		rospy.is_shutdown("Bye!")
 	except rospy.ROSInterruptException:
 		pass

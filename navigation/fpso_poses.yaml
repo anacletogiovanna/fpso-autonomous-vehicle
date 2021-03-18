@@ -8,4 +8,4 @@
 - {local: 'm04_tag_1', position: { x: 10.4733, y: 2.7087}, quaternion: {x: 0, y: 0, z: 0.0133, w: 0.9999}}
 - {local: 'm02_tag_2', position: { x: 8.3108, y: 2.3557}, quaternion: {x: 0, y: 0, z: 0.6468, w: 0.7626}}
 - {local: 'm02_tag_1', position: { x: 5.7569, y: 2.3553}, quaternion: {x: 0, y: 0, z: 0.7109, w: 0.7032}}
-- {local: 'forward', position: { x: 0, y: 0}, quaternion: {x: 0, y: 0, z: 0, w: 1}}
+- {local: 'forward', position: { x: 1.3848, y: 0.02222}, quaternion: {x: 0, y: 0, z: -0.0074, w: 0.9999}}
