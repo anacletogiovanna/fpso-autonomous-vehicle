@@ -29,7 +29,7 @@ def main():
 		initial_pose = yaml.load(stream)
 		
 	#Setando a pose inicial do robo
-	set_initial_pose(initial_pose[pose])
+	set_initial_pose(initial_pose['pose'])
           
 if __name__ == '__main__':
     main()
