@@ -56,6 +56,7 @@ def main():
 					
 			#Setando a pose objetivo da base movel
 			set_goal(i+1, poses[i+1]['position'], poses[i+1]['quaternion'])
+			sleep(5)
 			
           
 if __name__ == '__main__':
