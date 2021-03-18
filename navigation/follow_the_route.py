@@ -22,7 +22,7 @@ def set_goal(count, pos, quat):
 	if not rospy.is_shutdown():
 		rospy.loginfo("Deslocando para pose: %s", count)
 		pub.publish(pose_msg)
-		rospy.sleep(3)
+		rospy.sleep(1)
 		#rospy.loginfo(pose_msg)
 		pub.publish(pose_msg)
 		rospy.sleep(1)
@@ -40,6 +40,7 @@ def main():
 			while not rospy.is_shutdown():
 				rospy.Subscriber('/move_base/result', MoveBaseActionResult, listener_robot_callback)
 				if status == 3:
+					rospy.sleep(3)
 					break
 					
 if __name__ == '__main__':
