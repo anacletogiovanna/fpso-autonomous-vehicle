@@ -41,13 +41,11 @@ def main():
 	rospy.init_node('fpso', anonymous=False) #No de controle
 	
 	while True:
-
+	
+		set_goal(0, poses[0]['position'], poses[0]['quaternion'])
+		
 		for i in range(len(poses)):
-			
-			#Setando a pose objetivo da base movel
-			set_goal(i+1, poses[i+1]['position'], poses[i+1]['quaternion'])
-			sleep(2)
-			
+		
 			#Verificando se ja cheguei no meu objetivo
 			while not rospy.is_shutdown():
 				rospy.Subscriber('/move_base/result', MoveBaseActionResult, listener_robot_callback)
@@ -56,6 +54,8 @@ def main():
 				if status == 3:
 					break
 					
+			#Setando a pose objetivo da base movel
+			set_goal(i+1, poses[i+1]['position'], poses[i+1]['quaternion'])
 			
           
 if __name__ == '__main__':

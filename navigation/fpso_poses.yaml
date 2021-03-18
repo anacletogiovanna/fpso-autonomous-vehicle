@@ -1,4 +1,4 @@
 - {local: 'initial', position: { x: 0, y: 0}, quaternion: {x: 0, y: 0, z: 0, w: 1}}
 - {local: 'tag_1', position: { x: 7.0999, y: -1.4503}, quaternion: {x: 0, y: 0, z: -0.7032, w: 0.7109}}
-- {local: 'tag_2', position: { x: 7.0999, y: -1.4503}, quaternion: {x: 0, y: 0, z: -0.7032, w: 0.7109}}
+- {local: 'tag_2', position: { x: 11.0153, y: -2.2125}, quaternion: {x: 0, y: 0, z: -0.7211, w: 0.6928}}
 - {local: 'recharge', position: { x: 0, y: 0}, quaternion: {x: 0, y: 0, z: 0, w: 1}}
