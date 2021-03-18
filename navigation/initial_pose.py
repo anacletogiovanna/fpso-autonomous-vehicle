@@ -14,7 +14,7 @@ def set_initial_pose(pose):
 	initpose_msg = PoseWithCovarianceStamped()
 	initpose_msg.header.frame_id = 'map'
 	initpose_msg.header.stamp = rospy.Time.now()
-	initpose_msg.pose = Pose(Point(pose['x'], pose['y'], 0.000), Quaternion(quat[0], quat[1], quat[2], quat[3]))
+	initpose_msg.pose.pose = Pose(Point(pose['x'], pose['y'], 0.000), Quaternion(quat[0], quat[1], quat[2], quat[3]))
 	
 	if not rospy.is_shutdown():
 		pub.publish(initpose_msg)
