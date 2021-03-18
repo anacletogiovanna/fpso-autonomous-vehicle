@@ -11,7 +11,10 @@ def listener_robot_callback(data):
     global status
     status = data.status.status
 	
-def set_goal(count, pos, quat):
+def set_goal(count, pose, quat):
+	pos = poses['position']
+	quat = poses['quaternion']
+	local = poses['local']
 	pub = rospy.Publisher('/move_base_simple/goal', PoseStamped, queue_size=10)
 	rate = rospy.Rate(1) #10Hz
 	#Criando o objeto para setar a pose inicial informada
@@ -20,7 +23,7 @@ def set_goal(count, pos, quat):
 	pose_msg.header.stamp = rospy.Time.now()
 	pose_msg.pose = Pose(Point(pos['x'], pos['y'], 0.000), Quaternion(quat['x'], quat['y'], quat['z'], quat['w']))
 	if not rospy.is_shutdown():
-		rospy.loginfo("Deslocando para pose: %s", count)
+		rospy.loginfo("Deslocando para pose: %s - %s", count, local)
 		pub.publish(pose_msg)
 		rospy.sleep(1)
 		#rospy.loginfo(pose_msg)
@@ -35,7 +38,7 @@ def main():
 	while True:
 		for i in range(len(poses)-1):
 			#Setando a pose objetivo da base movel
-			set_goal(i+1, poses[i+1]['position'], poses[i+1]['quaternion'])
+			set_goal(i+1, poses[i+1])
 			#Verificando se ja cheguei no meu objetivo
 			while not rospy.is_shutdown():
 				rospy.Subscriber('/move_base/result', MoveBaseActionResult, listener_robot_callback)
