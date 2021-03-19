@@ -98,7 +98,7 @@ def callback_camera(data):
 
     img_result = identify_qrcode(cv_image)
 
-    cv2.imshow("Tartaruga Ninja", img_result)
+    cv2.imshow("Turtlebot3 - Vision", img_result)
     cv2.waitKey(1)
 
 #Pegando a imagem da camera do turtlebot no topico
