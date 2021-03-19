@@ -63,11 +63,12 @@ def send_img_info_by_topic(tag_name):
 #tirando a foto 
 def take_photo(img, img_name):
     global is_take_photo
-
-    tag_name = img_dir['dir'] + file_name_by_date(img_name)
-    cv2.imwrite(tag_name, img)
+    
+    tag_name = file_name_by_date(img_name)
+    tag_file_path = img_dir['dir'] + tag_name
+    cv2.imwrite(tag_file_path, img)
     is_take_photo = False
-    #send_img_info_by_topic(img_name)
+    
     
 #identificando e decodificando o qrCode       
 def identify_qrcode(img):
