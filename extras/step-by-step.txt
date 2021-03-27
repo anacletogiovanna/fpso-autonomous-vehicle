@@ -1,0 +1,53 @@
+#Abrir ajustar cenario no Gazebo
+$ cd /home/starwars/fpso-autonomous-vehicle/FPSO_World_
+$ gazebo fpso_world.world
+
+#Salvar depois e colocar uma copia do arquivo dentro da pasta 
+#/home/starwars/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/worlds
+#depois dar um catkin_make
+
+################
+
+#Mapear o cenário: Abrir cenario no gazebo
+$ initros1
+$ source devel/setup.bash
+$ export TURTLEBOT3_MODEL=waffle_pi
+$ roslaunch turtlebot3_gazebo fpso_world.launch
+
+#Mapear o cenário: Abrir cenario mapping no rviz
+$ initros1
+$ source devel/setup.bash
+$ export TURTLEBOT3_MODEL=waffle_pi
+$ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
+
+#Mapear o cenário: Deslocar por td cenário para slam
+$ initros1
+$ source devel/setup.bash
+$ export TURTLEBOT3_MODEL=waffle_pi
+$ roslaunch turtlebot3_gazebo turtlebot3_simulation.launch
+#ou 
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+
+#qnd acabar, salve o mapa 
+$ rosrun map_server map_saver -f fpso_map_v2
+
+========================================================
+
+#Modo navegação
+
+#Mapear o cenário: Abrir cenario no gazebo
+$ initros1
+$ source devel/setup.bash
+$ export TURTLEBOT3_MODEL=waffle_pi
+$ roslaunch turtlebot3_gazebo fpso_world.launch
+
+#Mapear o cenário: abrir visuaização no rviz com mapa criado
+$ roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=/home/starwars/fpso-autonomous-vehicle/fpso_map_v2.yaml
+
+#Scripts de pose inicial e navegação da rota
+$ cd /home/starwars/fpso-autonomous-vehicle/navigation
+$ python3 initial_pose.py
+$ python3 follow_the_route.py
+
+#Verificar os topicos
+$ rosrun rqt_graph rqt_graph
