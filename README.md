@@ -3,6 +3,8 @@
 
 Acidentes na indústria brasileira causam prejuízos em diversas esferas, como por exemplo econômica e ambiental. Com o aumento da perfuração e exploração de novos poços para extração de petróleo e gás natural, é imprescindível que os ambientes offshore estejam munidos de informações para realizar ações preventivas a fim de evitar tragédias. Sendo assim, é de suma importância trazer elementos da tecnologia, tal como robótica, para apoiar na realização dessas tarefas, tais como a utilização de robôs autônomos que monitorem continuamente o ambiente no qual esteja inserido por meio de câmeras e sensores. Neste cenário, os principais objetivos da solução proposta nesse artigo são a navegação autônoma do robô e a inspeção/monitoramento do local por meio extração de imagens coletadas pela câmera
 
+![gazebo_fpso_world](https://user-images.githubusercontent.com/33101169/113529606-3b75a500-959a-11eb-896f-45be785995d4.png)
+
 #### Tecnologias utilizadas:
 Para criação de pacotes do tipos ROS 1, simulaçao e utilização do robô para teste, foram utilizadas as seguintes ferramentas:
 - [ROS - Noetic](http://wiki.ros.org/noetic): Framework ROS para comunicação entre nós do robô para o sistema operacional Ubuntu 20.
